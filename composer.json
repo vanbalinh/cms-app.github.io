@@ -1,0 +1,19 @@
+{
+  "require": {
+    "auth0/auth0-php": "^8.3",
+    "laminas/laminas-config": "^3.5",
+    "pusher/pusher-php-server": "^7.0",
+    "twilio/sdk": "^6.28",
+    "league/oauth2-google": "^4.0",
+    "stripe/stripe-php": "4.10.0",
+    "php-http/guzzle7-adapter": "^1.0",
+    "nyholm/psr7": "^1.5",
+    "phpmailer/phpmailer": "^6.6",
+    "google/apiclient": "2.12.1",
+    "zaloplatform/zalo-php-sdk": "4.0",
+    "facebook/graph-sdk": "^5.1"
+  },
+  "config": {
+    "platform-check": false
+  }
+}

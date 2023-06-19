@@ -1,0 +1,35 @@
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+    Header set Access-Control-Allow-Credentials "true"
+    Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding, X-Auth-Token, content-type"
+</IfModule>
+<IfModule mod_rewrite.c>
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+  <IfModule mod_negotiation.c>
+      Options -MultiViews -Indexes
+  </IfModule>
+
+  RewriteEngine On
+  RewriteBase /
+  
+  # Handle Authorization Header
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  RewriteRule ^document/v([0-9])/(.*)$ ./router/index.php?_____action=file&ver=$1&name=$2 [L,QSA]
+
+  RewriteRule ^api/v([0-9])/upload$ ./router/index.php?_____version=$1&_____path=/api/v$1/upload&%0 [L,R=307,NC]
+  RewriteRule ^api/v([0-9])/file/upload$ ./router/index.php?_____version=$1&_____path=/api/v$1/file/upload&%0 [L,R=307,NC]
+  RewriteRule ^api/v([0-9])/(.*) ./router/index.php?_____version=$1&_____path=/api/v$1/$2 [L,NC,QSA]
+  RewriteRule ^api/(.*) ./router/index.php?_____path=/api/$1 [L,NC,QSA]
+
+  RewriteRule ^build/index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+
+  RewriteRule . /build/index.html [L]
+</IfModule>

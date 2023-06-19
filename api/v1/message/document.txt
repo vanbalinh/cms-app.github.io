@@ -1,0 +1,21 @@
+room
+    title?: string;
+    topic?: string;
+    type: single | group
+
+room_account
+    room_id: number;
+    account_id: number;
+
+
+message
+    room_id: number;
+    content: string;
+    reply_id?:number;
+
+room_message_account:
+    message_id: number;
+    account_id: number;
+    is_received: boolean;
+    is_seen: boolean;
+

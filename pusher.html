@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+  
+</head>
+<body>
+  <h1>Pusher Test</h1>
+  <p>
+    Try publishing an event to channel <code>my-channel</code> with event name
+    <code>my-event</code>.
+  </p>
+  <div id="content"></div>
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = false;
+
+    var pusher = new Pusher("4ec31c6e7b22742d4271", {
+      cluster: "eu",
+    });
+
+    var channel = pusher.subscribe("message");
+    channel.bind("test", function (data) {
+        console.log(data);
+        const elm = document.createElement("div");
+        elm.style.padding="10px";
+        elm.style.border="1px solid #ccc";
+        elm.style.borderRadius="5px";
+        elm.style.marginTop="10px";
+        elm.innerHTML=JSON.stringify(data);
+      document.getElementById("content").appendChild(elm);
+    });
+  </script>
+</body>
