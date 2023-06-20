@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/vbl-cms-app.github.io/static/css/main.445a0c59.css",
+    "main.js": "/vbl-cms-app.github.io/static/js/main.aeb85845.js",
+    "static/js/787.24eea8a9.chunk.js": "/vbl-cms-app.github.io/static/js/787.24eea8a9.chunk.js",
+    "index.html": "/vbl-cms-app.github.io/index.html",
+    "main.445a0c59.css.map": "/vbl-cms-app.github.io/static/css/main.445a0c59.css.map",
+    "main.aeb85845.js.map": "/vbl-cms-app.github.io/static/js/main.aeb85845.js.map",
+    "787.24eea8a9.chunk.js.map": "/vbl-cms-app.github.io/static/js/787.24eea8a9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.445a0c59.css",
+    "static/js/main.aeb85845.js"
+  ]
+}
